@@ -1,12 +1,15 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
+from dotenv import load_dotenv, dotenv_values
+load_dotenv()
 
 # Configuración de credenciales de cPanel
-EMAIL_USER = "Example@example.com"       # Reemplaza con tu correo de cPanel
-EMAIL_PASS = "pass"                 # Reemplaza con la contraseña de tu correo de cPanel
-SMTP_SERVER = "dominio"           # Reemplaza con el servidor SMTP de tu cPanel
-SMTP_PORT = 465                               # Puerto SMTP seguro para cPanel
+EMAIL_USER = os.getenv("EMAIL_USER")       # Reemplaza con tu correo de cPanel
+EMAIL_PASS = os.getenv("EMAIL_PASS")                # Reemplaza con la contraseña de tu correo de cPanel
+SMTP_SERVER = os.getenv("SMTP_SERVER")           # Reemplaza con el servidor SMTP de tu cPanel
+SMTP_PORT = os.getenv("SMTP_PORT")                               # Puerto SMTP seguro para cPanel
 
 # Información del correo
 DESTINATARIOS = ["Correo1@example.com", "Correo2@example.com"]       # Reemplaza con el correo del destinatario
